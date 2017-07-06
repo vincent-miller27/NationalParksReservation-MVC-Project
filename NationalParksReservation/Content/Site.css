@@ -1,0 +1,136 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#intro-header {
+    text-align: center;
+    font-size: 40px;
+}
+
+#intro-container {
+    text-align: center;
+    background-color: silver;
+    font-size: 20px;
+    line-height: 70px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+    #intro-container a:hover {
+        text-decoration: none;
+    }
+
+    #intro-container a:after {
+        text-decoration: none;
+    }
+
+.park-container {
+    text-align: center;
+}
+
+    .park-container img {
+        width: 450px;
+    }
+
+    .park-container p {
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .park-container a {
+        text-decoration: none;
+        color: black;
+    }
+
+        .park-container a:hover {
+            color: dimgray;
+        }
+
+#parkinterface-container {
+    width: 700px;
+    margin: 0 auto;
+    line-height: 18px;
+}
+
+    #parkinterface-container h1 {
+        font-weight: bold;
+        text-align: center;
+        position: relative;
+        right: 90px;
+    }
+
+    #parkinterface-container img {
+        width: 500px;
+        margin-bottom: 10px;
+    }
+
+#selection a:hover {
+    text-decoration: none;
+}
+
+#selection ul {
+    font-size: 15px;
+    line-height: 25px;
+    list-style-type: none;
+}
+
+#table-container {
+    width: 570px;
+    margin: 50px auto;
+}
+
+    #table-container table {
+        width: 100%;
+        border-spacing: 70px 0;
+    }
+
+    #table-container tr {
+        line-height: 30px;
+    }
+
+.cg-selection {
+    color: navy;
+}
+
+    .cg-selection:hover {
+        color: silver;
+        text-decoration: none;
+    }
+
+.cs-selection:hover {
+    text-decoration: none;
+}
+
+.selection-container {
+    width: 800px;
+}
+
+.selection-container table {
+    width: 100%;
+    border-spacing: 50px 0;
+}
+
+.selection-container tr {
+    line-height: 30px;
+}

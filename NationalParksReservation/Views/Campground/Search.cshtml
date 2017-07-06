@@ -1,0 +1,72 @@
+﻿@using NationalParksReservation.Models;
+@model CampSearch
+@{
+    ViewBag.Title = "Search Campground";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search</h2>
+@using (Html.BeginForm("Search", "Campground", FormMethod.Post))
+{
+    <div id="table-container">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Open</td>
+                <td>Close</td>
+                <td>Daily Fee</td>
+            </tr>
+            <tr>
+                <td>@Model.CampgroundName</td>
+                <td>@Model.OpenMonth</td>
+                <td>@Model.CloseMonth</td>
+                <td>@Model.DailyFee.ToString("C")</td>
+            </tr>
+        </table>
+    </div>
+    <br />
+
+    @Html.HiddenFor(m => m.CampgroundId)
+    @Html.HiddenFor(m => m.DailyFee)
+
+    <div class="input-form">
+        @Html.Label("ArrivalDate", "What is your date of arrival?")
+        @Html.EditorFor(m => m.ArrivalDate)
+        @Html.ValidationMessageFor(m => m.ArrivalDate)
+    </div>
+
+    <div class="input-form">
+        @Html.Label("DepartureDate", "What is your date of departure?")
+        @Html.EditorFor(m => m.DepartureDate)
+        @Html.ValidationMessageFor(m => m.DepartureDate)
+    </div>
+
+    <div class="input-form">
+        @Html.Label("MaxOccupancy", "(Required) Enter the minimum amount of people that will be attending")
+        @Html.TextBoxFor(m => m.MaxOccupancy)
+        @Html.ValidationMessageFor(m => m.MaxOccupancy)
+    </div>
+
+    <div class="input-form">
+        @Html.Label("IsAccessible", "Do you need a handicap accessible site?")
+        @Html.CheckBoxFor(m => m.IsAccessible)
+    </div>
+
+    <div class="input-form">
+        @Html.Label("RVLength", "What is the size of your RV in feet? (If you do not have an RV then please enter 0)")
+        @Html.TextBoxFor(m => m.RVLength)
+    </div>
+
+    <div class="input-form">
+        @Html.Label("NeedUtilities", "Do you need a hookup for utilities?")
+        @Html.CheckBoxFor(m => m.NeedUtilities)
+    </div>
+    <button>Search!</button>
+
+    <div id="selection">
+        <br />
+        <ul>
+            <li>@Html.ActionLink("Back to previous page", "Index", "Campground", new { id = Model.CampgroundId }, null)</li>
+        </ul>
+    </div>
+}

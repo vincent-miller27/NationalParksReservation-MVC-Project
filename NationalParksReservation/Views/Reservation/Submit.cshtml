@@ -1,0 +1,43 @@
+﻿@using NationalParksReservation.Models;
+@model Reservation
+
+@{
+    ViewBag.Title = "Submit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 id="confirmation-line">You Would Like To Reserve</h3>
+
+@using (Html.BeginForm("Submit", "Reservation", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.SiteID)
+    @Html.HiddenFor(m => m.ReservationStart)
+    @Html.HiddenFor(m => m.ReservationEnd)
+    @Html.HiddenFor(m => m.DailyFee)
+
+    <table class="selection-container">
+        <tr>
+            <td>Site ID</td>
+            <td>Arrival Date</td>
+            <td>Departure Date</td>
+            <td>Cost</td>
+        </tr>
+
+        <tr>
+            <td>@Model.SiteID</td>
+            <td>@Model.ReservationStart.ToShortDateString()</td>
+            <td>@Model.ReservationEnd.ToShortDateString()</td>
+            <td>@Model.DailyFee.ToString("C")</td>
+        </tr>
+    </table>
+
+    <div class="input-form">
+        <br />
+        @Html.Label("ReservationName", "What name would you like to make the reservation under?")
+        @Html.EditorFor(m => m.ReservationName)
+        @Html.ValidationMessageFor(m => m.ReservationName)
+    </div>
+
+    <br />
+    <button>Make Reservation!</button>
+}

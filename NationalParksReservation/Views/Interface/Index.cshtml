@@ -1,0 +1,25 @@
+﻿@using NationalParksReservation.Models;
+@model List<Park>
+
+@{
+    ViewBag.Title = "Park Selection";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Interface", FormMethod.Post))
+{
+    <div class="park-container">
+        <h3>Please Select a Park for Further Details</h3>
+        <br />
+        @foreach (Park park in Model)
+        {
+            <a href="@Url.Action("ParkInterface", "Interface", new { id = park.ParkId }, null)">
+                <img src="~/Content/Images/@(park.ParkName).jpg" />
+            </a>
+            <a href="@Url.Action("ParkInterface", "Interface", new { id = park.ParkId }, null)">
+                <p>@park.ParkName</p>
+            </a>
+            <br />
+        }
+    </div>
+}

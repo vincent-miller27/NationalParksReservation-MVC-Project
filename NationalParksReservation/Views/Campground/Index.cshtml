@@ -1,0 +1,42 @@
+﻿@using NationalParksReservation.Models;
+@model List<Campground>
+
+@{ int counter = 1; }
+
+@{
+    ViewBag.Title = "Campground Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Click Campground Name To Search Available Campsites</h3>
+
+<div id="table-container">
+    <table>
+        <tr>
+            <td> </td>
+            <th>Name</th>
+            <th>Open</th>
+            <th>Close</th>
+            <th>Daily Fee</th>
+        </tr>
+        @foreach (Campground campground in Model)
+        {
+            <tr>
+                <td>#@counter</td>
+                <td>@Html.ActionLink(@campground.CampgroundName, "Search", "Campground", new { id = campground.CampgroundId }, new { @class = "cg-selection" })</td>
+                <td>@campground.OpenMonth</td>
+                <td>@campground.CloseMonth</td>
+                <td>@campground.DailyFee.ToString("C")</td>
+            </tr>
+
+            counter++;
+        }
+    </table>
+</div>
+<br />
+
+<div id="selection">
+    <ul>
+        <li>@Html.ActionLink("Return to Park Selection", "Index", "Interface")</li>
+    </ul>
+</div>

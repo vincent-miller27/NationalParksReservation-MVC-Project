@@ -1,0 +1,26 @@
+﻿@using NationalParksReservation.Models;
+@model Park
+@{
+    ViewBag.Title = "Park Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="parkinterface-container">
+    <h1>@Model.ParkName National Park</h1>
+    <br />
+    <img src="~/Content/Images/@(Model.ParkName).jpg" />
+    <p>Location: @Model.ParkLocation</p>
+    <p>Established: @Model.DateEstablished.ToShortDateString()</p>
+    <p>Area: @Model.ParkAreaSqAcres.ToString("N0") Sq Acres</p>
+    <p>Annual Visitors: @Model.AnnualParkVisitorCount.ToString("N0")</p>
+    <p>@Model.ParkDescription</p>
+    
+    <div id="selection">
+        <p><strong>Choose an option</strong></p>
+        <ul>
+            <li>@Html.ActionLink("View Campgrounds", "Index", "Campground", new { id = Model.ParkId }, null)</li>
+            <li>@Html.ActionLink("Search For Reservation", "ParkSearch", "Campground", new { id = Model.ParkId }, null)</li>
+            <li>@Html.ActionLink("Return to Previous Screen", "Index", "Interface")</li>
+        </ul>
+    </div>
+</div>

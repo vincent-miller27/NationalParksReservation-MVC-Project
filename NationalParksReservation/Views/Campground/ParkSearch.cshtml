@@ -1,0 +1,55 @@
+﻿@using NationalParksReservation.Models;
+@model ParkSearch
+@{
+    ViewBag.Title = "Search Park";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("ParkSearch", "Campground", FormMethod.Post))
+{
+    <h3>Search Criteria for @Model.ParkName National Park</h3>
+    <br />
+
+    @Html.HiddenFor(m => m.ParkId)
+
+    <div class="input-form">
+        @Html.Label("ArrivalDate", "What is your date of arrival?")
+        @Html.EditorFor(m => m.ArrivalDate)
+        @Html.ValidationMessageFor(m => m.ArrivalDate)
+    </div>
+
+    <div class="input-form">
+        @Html.Label("DepartureDate", "What is your date of departure?")
+        @Html.EditorFor(m => m.DepartureDate)
+        @Html.ValidationMessageFor(m => m.DepartureDate)
+    </div>
+
+    <div class="input-form">
+        @Html.Label("MaxOccupancy", "(Required) Enter the minimum amount of people that will be attending")
+        @Html.TextBoxFor(m => m.MaxOccupancy)
+        @Html.ValidationMessageFor(m => m.MaxOccupancy)
+    </div>
+
+    <div class="input-form">
+        @Html.Label("IsAccessible", "Do you need a handicap accessible site?")
+        @Html.CheckBoxFor(m => m.IsAccessible)
+    </div>
+
+    <div class="input-form">
+        @Html.Label("RVLength", "What is the size of your RV in feet? (If you do not have an RV then please enter 0)")
+        @Html.TextBoxFor(m => m.RVLength)
+    </div>
+
+    <div class="input-form">
+        @Html.Label("NeedUtilities", "Do you need a hookup for utilities?")
+        @Html.CheckBoxFor(m => m.NeedUtilities)
+    </div>
+    <button>Search!</button>
+
+    <div id="selection">
+        <br />
+        <ul>
+            <li>@Html.ActionLink("Back to previous page", "Index", "Campground", new { id = Model.ParkId }, null)</li>
+        </ul>
+    </div>
+}
