@@ -16,12 +16,12 @@ To successfully run the project, you need to download Microsoft Visual Studio, w
 
 As the user, you should be able to:
 
--View a list of the parks, which are uploaded from a database.
--Click on the name of the park or its picture to view more details of it
--From the park detail screen, you can choose to see its campground
--You can choose a specific campground and search for available campsites with the search queries provided
--From there you can make your reservation and the confirmation page will provide your reservation ID
--You can also search for available campsites directly from the park page and make a reservation
+- View a list of the parks, which are uploaded from a database.
+- Click on the name of the park or its picture to view more details of it
+- From the park detail screen, you can choose to see its campground
+- You can choose a specific campground and search for available campsites with the search queries provided
+- From there you can make your reservation and the confirmation page will provide your reservation ID
+- You can also search for available campsites directly from the park page and make a reservation
 
 ## Additional Information
 
