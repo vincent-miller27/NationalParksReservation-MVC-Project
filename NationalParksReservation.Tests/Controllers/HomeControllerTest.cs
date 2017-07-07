@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NationalParksReservation;
 using NationalParksReservation.Controllers;
+using NationalParksReservation.DAL;
 
 namespace NationalParksReservation.Tests.Controllers
 {
