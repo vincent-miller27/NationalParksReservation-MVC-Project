@@ -25,4 +25,4 @@ As the user, you should be able to:
 
 ## Additional Information
 
-The original project was completed with two other teams members
+The original project was completed with two other team members
