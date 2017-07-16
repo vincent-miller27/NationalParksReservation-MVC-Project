@@ -10,11 +10,11 @@ using NationalParksReservation.DAL;
 
 namespace NationalParksReservation.Tests.Controllers
 {
-    [TestClass]
+    [TestClass()]
     public class HomeControllerTest
     {
-        [TestMethod]
-        public void Index()
+        [TestMethod()]
+        public void HomeController_IndexAction_ReturnIndexView()
         {
             // Arrange
             HomeController controller = new HomeController();
@@ -24,6 +24,7 @@ namespace NationalParksReservation.Tests.Controllers
 
             // Assert
             Assert.IsNotNull(result);
+            Assert.AreEqual("Index", result.ViewName);
         }
     }
 }

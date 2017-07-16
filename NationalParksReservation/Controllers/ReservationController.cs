@@ -30,7 +30,6 @@ namespace NationalParksReservation.Controllers
 
             Session["ParkSearch"] = parkSearch;
 
-
             List<CampSite> siteList = reservationDAL.FindParkReservation(parkSearch);
 
             return View("ParkScreen", siteList);
@@ -38,7 +37,20 @@ namespace NationalParksReservation.Controllers
 
         public ActionResult ParkSubmit(int id)
         {
-            ParkSearch existingParkSearch = Session["ParkSearch"] as ParkSearch;
+            //Session will always be filled but If/Else statement is there for testing purposes
+            ParkSearch existingParkSearch = new ParkSearch();
+            if (Session["ParkSearch"] != null)
+            {
+                existingParkSearch = Session["ParkSearch"] as ParkSearch;
+            }
+            else
+            {
+                existingParkSearch = new ParkSearch()
+                {
+                    ArrivalDate = DateTime.Today,
+                    DepartureDate = DateTime.Today
+                };
+            }
 
             Reservation reservation = new Reservation(id, existingParkSearch.ArrivalDate, existingParkSearch.DepartureDate);
 
@@ -54,7 +66,21 @@ namespace NationalParksReservation.Controllers
         // GET: Submit
         public ActionResult Submit(int id)
         {
-            CampSearch existingSearch = Session["CampSearch"] as CampSearch;
+            //Session will always be filled but If/Else statement is there for testing purposes
+            CampSearch existingSearch = new CampSearch();
+            if (Session["ParkSearch"] != null)
+            {
+                existingSearch = Session["CampSearch"] as CampSearch;
+            }
+            else
+            {
+                existingSearch = new CampSearch()
+                {
+                    ArrivalDate = DateTime.Today,
+                    DepartureDate = DateTime.Today,
+                    DailyFee = 0.00
+                };
+            }
 
             Reservation reservation = new Reservation(id, existingSearch.ArrivalDate, existingSearch.DepartureDate, existingSearch.DailyFee);
 

@@ -12,11 +12,11 @@ using Moq;
 
 namespace NationalParksReservation.Tests.Controllers
 {
-    [TestClass]
+    [TestClass()]
     public class CampgroundControllerTest
     {
         [TestMethod]
-        public void CampgroundIndex()
+        public void CampgroundController_IndexAction_ReturnIndexView()
         {
             // Arrange
             CampgroundController controller = new CampgroundController();
@@ -27,17 +27,13 @@ namespace NationalParksReservation.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual("Index", result.ViewName);
-            Assert.IsNotNull(result.Model);
         }
 
-        [TestMethod]
-        public void ParkSearch_HttpGet()
+        [TestMethod()]
+        public void CampgroundController_ParkSearchAction_ReturnParkSearchView()
         {
-            string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=NationalPark;Integrated Security=True";
             // Arrange
-            ParkSearchSqlDAL mockDal = new ParkSearchSqlDAL(connectionString);
             CampgroundController controller = new CampgroundController();
-            ParkSearch model = new ParkSearch();
 
             // Act
             ViewResult result = controller.ParkSearch(1) as ViewResult;
@@ -45,12 +41,10 @@ namespace NationalParksReservation.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual("ParkSearch", result.ViewName);
-            Assert.IsNotNull(result.Model);
-            Assert.ReferenceEquals(model, mockDal.RetrieveInfo(1));
         }
 
-        [TestMethod]
-        public void ParkSearch_HttpPost()
+        [TestMethod()]
+        public void CampgroundController_ParkSearchAction_RedirectToParkScreenView()
         {
             //Arrange
             CampgroundController controller = new CampgroundController();
@@ -65,14 +59,11 @@ namespace NationalParksReservation.Tests.Controllers
             Assert.AreEqual("ParkScreen", result.RouteValues["action"]);
         }
 
-        [TestMethod]
-        public void Search_HttpGet()
+        [TestMethod()]
+        public void CampgroundController_SearchAction_ReturnSearchView()
         {
-            string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=NationalPark;Integrated Security=True";
             // Arrange
-            CampSiteSqlDAL mockDal = new CampSiteSqlDAL(connectionString);
             CampgroundController controller = new CampgroundController();
-            CampSearch model = new CampSearch();
 
             // Act
             ViewResult result = controller.Search(1) as ViewResult;
@@ -80,12 +71,10 @@ namespace NationalParksReservation.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual("Search", result.ViewName);
-            Assert.IsNotNull(result.Model);
-            Assert.ReferenceEquals(model, mockDal.RetrieveInfo(1));
         }
 
-        [TestMethod]
-        public void Search_HttpPost()
+        [TestMethod()]
+        public void CampgroundController_ParkSearchAction_RedirectToIndexView()
         {
             //Arrange
             CampgroundController controller = new CampgroundController();

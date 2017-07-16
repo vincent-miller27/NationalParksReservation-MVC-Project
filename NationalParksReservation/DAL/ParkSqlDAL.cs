@@ -13,7 +13,6 @@ namespace NationalParksReservation.DAL
         private string connectionString;
         private const string SQL_ParkList = "SELECT * FROM park ORDER BY name ASC;";
         private const string SQL_GetParkInfo = "SELECT * FROM park WHERE park_id = @park_id;";
-        // p JOIN campground c ON p.park_id = c.park_id 
 
         public ParkSqlDAL(string connectionString)
         {

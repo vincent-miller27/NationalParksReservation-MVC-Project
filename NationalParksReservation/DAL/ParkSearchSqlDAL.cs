@@ -34,7 +34,6 @@ namespace NationalParksReservation.DAL
 
                     while (reader.Read())
                     {
-                        Campground cg = new Campground();
                         p.ParkId = id;
                         p.ParkName = Convert.ToString(reader["name"]);
                     }

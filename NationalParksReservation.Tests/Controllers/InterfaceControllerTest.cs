@@ -11,17 +11,14 @@ using NationalParksReservation.DAL;
 
 namespace NationalParksReservation.Tests.Controllers
 {
-    [TestClass]
+    [TestClass()]
     public class InterfaceControllerTest
     {
-        [TestMethod]
-        public void InterfaceIndex()
+        [TestMethod()]
+        public void InterfaceController_IndexAction_ReturnIndexView()
         {
-            string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=NationalPark;Integrated Security=True";
             // Arrange
-            ParkSqlDAL mockDal = new ParkSqlDAL(connectionString);
             InterfaceController controller = new InterfaceController();
-            List<Park> model = new List<Park>();
 
             // Act
             ViewResult result = controller.Index() as ViewResult;
@@ -29,17 +26,13 @@ namespace NationalParksReservation.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual("Index", result.ViewName);
-            Assert.ReferenceEquals(model, mockDal.GetAllParks());
         }
 
-        [TestMethod]
-        public void ParkInterface()
+        [TestMethod()]
+        public void InterfaceController_ParkInterfaceAction_ReturnParkInterfaceView()
         {
-            string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=NationalPark;Integrated Security=True";
             // Arrange
-            ParkSqlDAL mockDal = new ParkSqlDAL(connectionString);
             InterfaceController controller = new InterfaceController();
-            Park model = new Park();
 
             // Act
             ViewResult result = controller.ParkInterface(1) as ViewResult;
@@ -47,8 +40,6 @@ namespace NationalParksReservation.Tests.Controllers
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual("ParkInterface", result.ViewName);
-            Assert.IsNotNull(result.Model);
-            Assert.ReferenceEquals(model, mockDal.GenerateParkName(1));
         }
     }
 }
