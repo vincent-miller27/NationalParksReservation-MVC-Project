@@ -68,7 +68,7 @@ namespace NationalParksReservation.Controllers
         {
             //Session will always be filled but If/Else statement is there for testing purposes
             CampSearch existingSearch = new CampSearch();
-            if (Session["ParkSearch"] != null)
+            if (Session["CampSearch"] != null)
             {
                 existingSearch = Session["CampSearch"] as CampSearch;
             }
